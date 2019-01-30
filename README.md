@@ -1,4 +1,3 @@
 # MODiCuM
 
-Specification, proof, and source code will be uploaded later this week.
-We apologize for the delay. 
+We apologize for the delay in uploading the specification, proof, additional experimental results, and source code. We are waiting for the approval of our intellectual property office, which we expect to receive either Friday (February 1st) or Monday (February 4th). Once we have the approval, we will immediately upload the materials.
