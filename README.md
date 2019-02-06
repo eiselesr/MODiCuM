@@ -15,7 +15,10 @@ Install docker as instructed in [here](https://docs.docker.com/install/linux/doc
 (`password.txt` is your desired password for the accounts)
 * init blockchain `./geth --datadir eth/  init genesis-data.json`
 * create the first account on the block chain: `./geth account new --password password.txt --datadir eth/`
-* start blockchain `./geth --datadir eth/ --rpc --rpcport 10000 --rpcaddr 127.0.0.1 --nodiscover --rpcapi 'eth,web3,admin,miner,net,db' --password password.txt --unlock 0 --networkid 15 --mine --targetgaslimit 200000000000000000 console`
+* start blockchain 
+```bash
+./geth --datadir eth/ --rpc --rpcport 10000 --rpcaddr 127.0.0.1 --nodiscover --rpcapi 'eth,web3,admin,miner,net,db' --password password.txt --unlock 0 --networkid 15 --mine --targetgaslimit 200000000000000000 console
+```
 
 It will need to run for some time so that there is ether in the wallet. And some of that ether will need to be transferred to the other accounts.
 Some useful commands that can be used from the console that was started with the above commands are:
@@ -33,6 +36,8 @@ Make sure you have Python3 and pip installed
 * go to `src/python`
 * install the modicum command with: `sudo pip3 install -e .`
 * fix your `.env` file and replace `<>`s with correct path information.
+* set $CONTRACTSRC in the location of the contract: `export CONTRACTSRC=../MODiCuM/src/solidity`
+* create directory `../MODiCuM/src/solidity/output`
 * compile the smart contract with:
 ```bash
 sudo docker run -it --rm\
@@ -42,10 +47,6 @@ sudo docker run -it --rm\
 		ethereum/solc:0.4.25 \
 		--overwrite --bin --bin-runtime --ast --asm -o /solidity/output /solidity/input/Modicum.sol
 ```
-
-* set $CONTRACTSRC in the location of the contrat (.../MODiCuM/src/solidity
-* create directory .../MODiCuM/src/solidity/output
-export`CONTRACTSRC` is the location of contract.)
 * run sample components in the following order:
     1. `modicum runAsCM`
     2. `modicum runAsSolver`
